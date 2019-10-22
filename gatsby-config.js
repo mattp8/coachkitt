@@ -8,7 +8,18 @@ module.exports = {
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-emotion',
-        'gatsby-plugin-typescript'
+        'gatsby-plugin-typescript',
+        {
+            resolve: 'gatsby-plugin-prefetch-google-fonts',
+            options: {
+                fonts: [
+                    {
+                        family: 'Montserrat',
+                        variants: ['400', '500', '700']
+                    }
+                ]
+            }
+        }
         // {
         //     resolve: `gatsby-plugin-favicon`,
         //     options: {

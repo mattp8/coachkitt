@@ -13,7 +13,7 @@ const theme = {
         offwhite: '#F7F3EF'
     },
     fonts: {
-        body: '"Montserrat", Helvetica, sans-serif',
+        body: '"Montserrat",  Helvetica, sans-serif',
         heading: '"Montserrat", Helvetica-Neue, sans-serif',
         code: 'Menlo, monospace'
     },
@@ -21,7 +21,7 @@ const theme = {
         tiny: '12px',
         small: '14px',
         body: '18px',
-        subtitle: '22px',
+        subtitle: '21px',
         heading1: '20px',
         heading2: '24px',
         heading3: '32px',
