@@ -1,0 +1,10 @@
+# Dependency directories
+node_modules/
+.DS_Store
+
+# IDEs
+.vscode/
+
+.env
+public/
+.cache/

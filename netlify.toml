@@ -1,0 +1,5 @@
+[build]
+    functions = "functions"
+    command = "gatsby build"
+    publish = "public/"
+   
