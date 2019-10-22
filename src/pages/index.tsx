@@ -8,37 +8,53 @@ import Layout from '../layouts/Layout'
 // Assets
 import Wave from 'assets/images/header-wave.svg'
 import WordMark from 'assets/images/kitt-text-logo-offwhite.svg'
+import KittIcon from 'assets/images/kitt_icon.svg'
 
 const IndexPage = () => {
     return (
         <Layout>
-            <Header justify="center" pt="3rem">
-                <Image alt="Coach Kitt" height="32px" src={WordMark} />
-            </Header>
-            <Flex justify="center" bg="offwhite" height="100vh" width="100%">
-                <Box maxWidth={[null, '600px']} textAlign="center">
-                    <Heading
-                        fontFamily="heading"
-                        color="black400"
-                        mb="1rem"
-                        fontWeight="bold"
-                        fontSize="display1"
-                        as="h1"
-                    >
-                        Lead great teams
-                    </Heading>
-                    <Text fontSize="subtitle" fontFamily="body" color="text" mb="2rem">
-                        Your very own team coach for Slack. Kitt helps you build a high performing
-                        team and community of people that don’t want to leave.
-                    </Text>
-                    <Image
-                        src="https://platform.slack-edge.com/img/add_to_slack@2x.png"
-                        height="50px"
-                        alt="Add Coach Kitt to Slack"
-                        m="0 auto"
-                    />
-                </Box>
-            </Flex>
+            <Box bg="offwhite" minHeight="100vh" maxWidth="100%" overflowX="hidden">
+                <Header justify="center" align="center" pt="6rem">
+                    <Image alt="Coach Kitt" height="32px" src={WordMark} mb="3rem" />
+                    <Mascot>
+                        <Image
+                            src={KittIcon}
+                            alt="Coach Kitt Icon"
+                            height="250px"
+                            width="auto"
+                        ></Image>
+                    </Mascot>
+                </Header>
+                <Flex justify="center" bg="offwhite" pb="3rem">
+                    <Box maxWidth={[null, '632px']} mt="2rem" px="1rem" textAlign="center">
+                        <Heading
+                            fontFamily="heading"
+                            color="black400"
+                            mb="1rem"
+                            fontWeight="bold"
+                            fontSize={['heading2', 'heading3', 'display1']}
+                            as="h1"
+                        >
+                            Lead great teams
+                        </Heading>
+                        <Text
+                            fontSize={['body', 'body', 'subtitle']}
+                            fontFamily="body"
+                            color="text"
+                            mb="2rem"
+                        >
+                            Your very own team coach for Slack. Kitt helps you build a high
+                            performing team and community of people that don’t want to leave.
+                        </Text>
+                        <Image
+                            src="https://platform.slack-edge.com/img/add_to_slack@2x.png"
+                            height="50px"
+                            alt="Add Coach Kitt to Slack"
+                            m="0 auto"
+                        />
+                    </Box>
+                </Flex>
+            </Box>
         </Layout>
     )
 }
@@ -46,8 +62,22 @@ const IndexPage = () => {
 export default IndexPage
 
 const Header = styled(Flex)`
-    background: ${(props: any) => props.theme.colors.offwhite} url(${Wave}) center center;
+    background: ${(props: any) => props.theme.colors.offwhite} url(${Wave}) center;
     background-repeat: no-repeat;
     width: 100%;
     height: 50vh;
+    min-height: 375px;
+    flex-direction: column;
+`
+
+const Mascot = styled(Flex)`
+    background: ${(props: any) => props.theme.colors.offwhite};
+    padding-top: 3rem;
+    height: 500px;
+    width: 500px;
+    padding-top: 4rem;
+    justify-content: center;
+
+    border-top-left-radius: ${(props: any) => props.theme.radii.rounded};
+    border-top-right-radius: ${(props: any) => props.theme.radii.rounded};
 `

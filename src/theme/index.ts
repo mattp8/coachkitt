@@ -23,8 +23,8 @@ const theme = {
         body: '18px',
         subtitle: '21px',
         heading1: '20px',
-        heading2: '24px',
-        heading3: '32px',
+        heading2: '32px',
+        heading3: '40px',
         display1: '48px',
         display2: '54px',
         display3: '64px'
