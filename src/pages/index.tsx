@@ -1,12 +1,20 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import { Box, Image, Flex, Text, Heading } from 'chakra'
 
 // Sections
 import Layout from '../layouts/Layout'
 
+// Assets
+import Wave from 'assets/images/header-wave.svg'
+import WordMark from 'assets/images/kitt-text-logo-offwhite.svg'
+
 const IndexPage = () => {
     return (
         <Layout>
+            <Header justify="center" pt="3rem">
+                <Image alt="Coach Kitt" height="32px" src={WordMark} />
+            </Header>
             <Flex justify="center" bg="offwhite" height="100vh" width="100%">
                 <Box maxWidth={[null, '600px']} textAlign="center">
                     <Heading
@@ -36,3 +44,10 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+const Header = styled(Flex)`
+    background: ${(props: any) => props.theme.colors.offwhite} url(${Wave}) center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 50vh;
+`
