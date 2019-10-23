@@ -1,6 +1,6 @@
-# 🔥🔥🔥 Metomic 
+# 🔥🔥🔥 Coach Kitt
 
-Repo for Metomic website. Build on Gatsby + typescript.
+Repo for Coach kitt website. Build on Gatsby + typescript.
 
 ## 🚀 Getting started
 

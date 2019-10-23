@@ -11,10 +11,10 @@ interface SeoProps {
 }
 
 const Seo = ({
-    title = 'Metomic',
-    description = 'Developer privacy tools',
+    title = 'Coach Kitt',
+    description = 'Lead great teams | Add Kitt to Slack',
     image = 'url',
-    url = 'https://www.metomic.com'
+    url = 'https://www.coachkitt.com'
 }: SeoProps) => (
     <Helmet>
         {/* General tags */}
