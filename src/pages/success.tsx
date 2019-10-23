@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Router, Location } from '@reach/router'
+import queryString from 'query-string'
+import axios from 'axios'
 
 // components
 import { Image, Flex, Text, Heading } from 'chakra'
@@ -10,7 +13,26 @@ import Layout from '../layouts/Layout'
 // Assets
 import Logo from 'assets/images/kitt-full-logo-orange.svg'
 
-const SuccessPage = () => {
+const SuccessPage = ({ location, search }) => {
+    const [state, setState] = useState({ loading: true, data: null, error: false })
+    useEffect(() => {
+        const getData = async code => {
+            try {
+                const { data } = await axios.get(
+                    `https://illius.serveo.net/install/auth?code=${code}`
+                )
+                setState({ ...state, loading: false, data })
+            } catch (e) {
+                setState({ ...state, loading: false, error: true })
+            }
+        }
+
+        if (search.code) {
+            getData(search.code)
+        }
+        return
+    }, [search])
+
     return (
         <Layout>
             <Flex
@@ -50,4 +72,16 @@ const SuccessPage = () => {
     )
 }
 
-export default SuccessPage
+const withLocation = ComponentToWrap => props => (
+    <Location>
+        {({ location }) => (
+            <ComponentToWrap
+                {...props}
+                location={location}
+                search={location.search ? queryString.parse(location.search) : {}}
+            />
+        )}
+    </Location>
+)
+
+export default withLocation(SuccessPage)
