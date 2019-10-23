@@ -19,7 +19,7 @@ const SuccessPage = ({ location, search }) => {
         const getData = async code => {
             try {
                 const { data } = await axios.get(
-                    `https://illius.serveo.net/install/auth?code=${code}`
+                    `https://coachkitt.herokuapp.com/install/auth?code=${code}`
                 )
                 setState({ ...state, loading: false, data })
             } catch (e) {
@@ -44,29 +44,42 @@ const SuccessPage = ({ location, search }) => {
                 pt="3rem"
                 bg="offwhite"
             >
-                <Image src={Logo} alt="Coach Kitt" m="0 auto" mb="4rem" />
-                <Flex maxWidth="600px" direction="column" align="center" textAlign="center">
-                    <Heading
-                        fontFamily="heading"
-                        color="black400"
-                        mb="1rem"
-                        fontSize={['display1', 'display2']}
+                <Link to="/">
+                    <Image src={Logo} alt="Coach Kitt" m="0 auto" mb="4rem" />
+                </Link>
+                {!state.loading && (
+                    <Flex
+                        maxWidth="630px"
+                        direction="column"
+                        align="center"
+                        textAlign="center"
+                        px="2rem"
                     >
-                        You did it!
-                    </Heading>
-                    <Text
-                        fontFamily="body"
-                        color="black300"
-                        fontSize={['body', 'body', 'subtitle']}
-                        mb="3rem"
-                    >
-                        Congratulations you’ve added Kitt to your workspace. Check Slack for a
-                        message from Kitt, he’ll have your first assignment soon.
-                    </Text>
-                    <Text color="black200" fontSize="small">
-                        Have any problems? <Link to="mailto:hello@coachkitt.com">Contact us</Link>
-                    </Text>
-                </Flex>
+                        <Heading
+                            fontFamily="heading"
+                            color="black400"
+                            mb="1rem"
+                            fontSize={['display1', 'display2']}
+                        >
+                            {state.error ? 'Uh oh. Invalid Code.' : 'You did it!'}
+                        </Heading>
+                        <Text
+                            fontFamily="body"
+                            color="black300"
+                            fontSize={['body', 'body', 'subtitle']}
+                            mb="3rem"
+                        >
+                            {state.error
+                                ? 'Looks like that Slack authentication isn\'t valid anymore. Please try the "add to Slack" button again.'
+                                : `Congratulations you’ve added Kitt to your workspace. Check Slack for a
+                        message from Kitt, he’ll have your first assignment soon.`}
+                        </Text>
+                        {/* <Text color="black200" fontSize="small">
+                            Have any problems?{' '}
+                            <Link to="mailto:hello@coachkitt.com">Contact us</Link>
+                        </Text> */}
+                    </Flex>
+                )}
             </Flex>
         </Layout>
     )
