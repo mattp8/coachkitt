@@ -17,13 +17,13 @@ const Link = ({ to, className, children, ...props }: LocalLinkProps) => {
 
     if (isExternalLink) {
         return (
-            <_Link as={GatsbyLink} {...{ className, to }} {...props}>
+            <_Link as="a" {...{ className }} href={to} {...props}>
                 {children}
             </_Link>
         )
     } else {
         return (
-            <_Link as="a" {...{ className, to }} {...props}>
+            <_Link as={GatsbyLink} {...{ className, to }} {...props}>
                 {children}
             </_Link>
         )
