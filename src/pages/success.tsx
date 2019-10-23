@@ -21,7 +21,8 @@ const SuccessPage = ({ location, search }) => {
                 const { data } = await axios.get(
                     `https://coachkitt.herokuapp.com/install/auth?code=${code}`
                 )
-                setState({ ...state, loading: false, data })
+                console.log(data)
+                setState({ ...state, loading: false, data, error: false })
             } catch (e) {
                 setState({ ...state, loading: false, error: true })
             }
