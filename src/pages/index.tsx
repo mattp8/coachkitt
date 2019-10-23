@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link } from 'components'
 import { Box, Image, Flex, Text, Heading } from 'chakra'
 
 // Sections
@@ -46,12 +47,14 @@ const IndexPage = () => {
                             Your very own team coach for Slack. Kitt helps you build a high
                             performing team and community of people that don’t want to leave.
                         </Text>
-                        <Image
-                            src="https://platform.slack-edge.com/img/add_to_slack@2x.png"
-                            height="50px"
-                            alt="Add Coach Kitt to Slack"
-                            m="0 auto"
-                        />
+                        <Link to="https://slack.com/oauth/authorize?client_id=729386734450.735260681362&scope=commands,bot,incoming-webhook,channels:read,users.profile:read">
+                            <Image
+                                src="https://platform.slack-edge.com/img/add_to_slack@2x.png"
+                                height="50px"
+                                alt="Add Coach Kitt to Slack"
+                                m="0 auto"
+                            />
+                        </Link>
                     </Box>
                 </Flex>
             </Box>
