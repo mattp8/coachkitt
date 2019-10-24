@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout'
 // Assets
 import Wave from 'assets/images/header-wave.svg'
 import WordMark from 'assets/images/kitt-text-logo-offwhite.svg'
-import KittIcon from 'assets/images/kitt_icon.svg'
+import KittIcon from 'assets/images/kitt_icon.png'
 
 const IndexPage = () => {
     return (
@@ -22,7 +22,7 @@ const IndexPage = () => {
                     </Mascot>
                 </Header>
                 <Flex justify="center" bg="offwhite" pb="3rem">
-                    <Box maxWidth={[null, '632px']} mt="2rem" px="1rem" textAlign="center">
+                    <Box maxWidth={[null, '632px']} mt={[0, '3rem']} px="1rem" textAlign="center">
                         <Heading
                             fontFamily="heading"
                             color="black400"
@@ -69,13 +69,27 @@ const Header = styled(Flex)`
 `
 
 const Mascot = styled(Flex)`
-    background: ${(props: any) => props.theme.colors.offwhite};
     padding-top: 3rem;
-    height: 500px;
     width: 500px;
     padding-top: 4rem;
     justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: 100%;
 
-    border-top-left-radius: ${(props: any) => props.theme.radii.rounded};
-    border-top-right-radius: ${(props: any) => props.theme.radii.rounded};
+    &:before {
+        content: '';
+        background: ${(props: any) => props.theme.colors.offwhite};
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+
+        width: 100%;
+        height: 250px;
+        z-index: -1;
+        border-top-left-radius: ${(props: any) => props.theme.radii.rounded};
+        border-top-right-radius: ${(props: any) => props.theme.radii.rounded};
+    }
 `
