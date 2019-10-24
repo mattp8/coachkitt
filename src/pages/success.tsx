@@ -47,9 +47,7 @@ const SuccessPage = ({ location, search }) => {
                 pt="3rem"
                 bg="offwhite"
             >
-                <Link to="/">
-                    <Image src={Logo} alt="Coach Kitt" m="0 auto" mb="4rem" />
-                </Link>
+                <Image src={Logo} alt="Coach Kitt" m="0 auto" mb="4rem" />
                 {!state.loading && (
                     <Flex
                         maxWidth="630px"

@@ -23,7 +23,7 @@ const Link = ({ to, className, children, ...props }: LocalLinkProps) => {
         )
     } else {
         return (
-            <_Link as={GatsbyLink} {...{ className, to }} {...props}>
+            <_Link as={GatsbyLink} {...{ className }} to={to} {...props}>
                 {children}
             </_Link>
         )

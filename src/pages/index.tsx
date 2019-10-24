@@ -18,12 +18,7 @@ const IndexPage = () => {
                 <Header justify="center" align="center" pt="6rem">
                     <Image alt="Coach Kitt" height="32px" src={WordMark} mb="3rem" />
                     <Mascot>
-                        <Image
-                            src={KittIcon}
-                            alt="Coach Kitt Icon"
-                            height="250px"
-                            width="auto"
-                        ></Image>
+                        <Image src={KittIcon} alt="Coach Kitt Icon" width="250px"></Image>
                     </Mascot>
                 </Header>
                 <Flex justify="center" bg="offwhite" pb="3rem">
