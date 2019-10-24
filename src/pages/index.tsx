@@ -24,7 +24,7 @@ const IndexPage = () => {
                 <Flex justify="center" bg="offwhite" pb="3rem" zIndex="9">
                     <Box
                         maxWidth={[null, '632px']}
-                        mt={['2rem', '3rem']}
+                        mt={['3rem', '3rem']}
                         px="1rem"
                         textAlign="center"
                     >
@@ -32,6 +32,7 @@ const IndexPage = () => {
                             fontFamily="heading"
                             color="black400"
                             mb="1rem"
+                            zIndex="9"
                             fontWeight="bold"
                             fontSize={['heading2', 'heading3', 'display1']}
                             as="h1"
