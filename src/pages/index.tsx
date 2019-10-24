@@ -21,7 +21,7 @@ const IndexPage = () => {
                         <Image src={KittIcon} alt="Coach Kitt Icon" width="250px"></Image>
                     </Mascot>
                 </Header>
-                <Flex justify="center" bg="offwhite" pb="3rem">
+                <Flex justify="center" bg="offwhite" pb="3rem" zIndex="9">
                     <Box maxWidth={[null, '632px']} mt={[0, '3rem']} px="1rem" textAlign="center">
                         <Heading
                             fontFamily="heading"
