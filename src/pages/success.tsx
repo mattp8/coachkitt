@@ -21,7 +21,6 @@ const SuccessPage = ({ location, search }) => {
                 const { data } = await axios.get(
                     `https://coachkitt.herokuapp.com/install/auth?code=${code}`
                 )
-                console.log(data)
                 setState({ ...state, loading: false, data, error: false })
             } catch (e) {
                 setState({ ...state, loading: false, error: true })
@@ -30,7 +29,10 @@ const SuccessPage = ({ location, search }) => {
 
         if (search.code) {
             getData(search.code)
+        } else {
+            setState({ ...state, loading: false, error: true })
         }
+
         return
     }, [search])
 
