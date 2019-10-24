@@ -22,7 +22,12 @@ const IndexPage = () => {
                     </Mascot>
                 </Header>
                 <Flex justify="center" bg="offwhite" pb="3rem" zIndex="9">
-                    <Box maxWidth={[null, '632px']} mt={[0, '3rem']} px="1rem" textAlign="center">
+                    <Box
+                        maxWidth={[null, '632px']}
+                        mt={['2rem', '3rem']}
+                        px="1rem"
+                        textAlign="center"
+                    >
                         <Heading
                             fontFamily="heading"
                             color="black400"
