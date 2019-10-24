@@ -11,7 +11,7 @@ import { Link } from 'components'
 import Layout from '../layouts/Layout'
 
 // Assets
-import Logo from 'assets/images/kitt-full-logo-orange.svg'
+import Logo from 'assets/images/kitt-full-logo-orange.png'
 
 const SuccessPage = ({ location, search }) => {
     const [state, setState] = useState({ loading: true, data: null, error: false })
@@ -47,7 +47,7 @@ const SuccessPage = ({ location, search }) => {
                 pt="3rem"
                 bg="offwhite"
             >
-                <Image src={Logo} alt="Coach Kitt" m="0 auto" mb="4rem" />
+                <Image src={Logo} alt="Coach Kitt" m="0 auto" width="220px" mb="4rem" />
                 {!state.loading && (
                     <Flex
                         maxWidth="630px"
