@@ -66,7 +66,7 @@ const theme = {
     },
 
     shadows: {
-        el100: '0px 2px 12px rgba(29, 25, 25, 0.08)'
+        el100: '0px 2px 12px rgba(29, 25, 25, 0.04)'
     },
 
     breakpoints: ['30em', '48em', '62em', '80em']

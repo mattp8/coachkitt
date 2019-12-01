@@ -10,6 +10,9 @@ import Layout from '../layouts/Layout'
 import Wave from 'assets/images/header-wave.svg'
 import WordMark from 'assets/images/kitt-text-logo-offwhite.svg'
 import KittIcon from 'assets/images/kitt_icon.png'
+import KittOnboarding from 'assets/images/kittOnboarding.jpg'
+import KittBasics from 'assets/images/kittBasics.jpg'
+import KittFeedback from 'assets/images/kittFeedback.jpg'
 
 const IndexPage = () => {
     const installUrl =
@@ -33,9 +36,36 @@ const IndexPage = () => {
             link: installUrl
         }
     ]
+
+    const tutorial = [
+        {
+            title: 'Add Kitt to Slack',
+            subtitle:
+                'You’ll receive a message from Kitt who’ll take you through an easy onboarding to get your team set up.',
+            image: KittOnboarding
+        },
+        {
+            title: 'Get started with the Basics',
+            subtitle:
+                'Kitt will kick off with a 3 week plan for building up the basics – from communication to trust.',
+            image: KittBasics
+        },
+        {
+            title: 'Get feedback and progress',
+            subtitle:
+                'Kitt follows your progress and regularly asks for feedback so you can measure your progress.',
+            image: KittFeedback
+        }
+    ]
     return (
         <Layout>
-            <Box bg="offwhite" minHeight="100vh" maxWidth="100%" overflowX="hidden">
+            <Box
+                bg="offwhite"
+                minHeight="100vh"
+                maxWidth="100%"
+                overflowX="hidden"
+                pb={['3rem', '3rem', '6rem']}
+            >
                 <Header justify="center" align="center" pt="6rem">
                     <Image alt="Coach Kitt" height="32px" src={WordMark} mb="3rem" />
                     <Mascot>
@@ -87,8 +117,13 @@ const IndexPage = () => {
                         justifyContent="center"
                     >
                         {features.map(({ title, description, link }) => (
-                            <Box p="1rem" width="100%">
-                                <Card boxShadow="el100" p="2rem" borderRadius="8px">
+                            <Box p="1rem" width="100%" key={title}>
+                                <Card
+                                    boxShadow="el100"
+                                    backgroundColor="white"
+                                    p="2rem"
+                                    borderRadius="8px"
+                                >
                                     <Heading color="primary" fontSize="24px" mb="1rem">
                                         {title}
                                     </Heading>
@@ -101,6 +136,95 @@ const IndexPage = () => {
                                 </Card>
                             </Box>
                         ))}
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box py={['3rem', '3rem', '6rem']}>
+                <Heading
+                    as="h2"
+                    fontSize={['heading3', 'heading3', 'display2']}
+                    textAlign="center"
+                    fontFamily="heading"
+                    color="black"
+                    px="1rem"
+                    m="0 auto"
+                    width={['100%', '100%', 8 / 12, 7 / 12]}
+                >
+                    Get started with Kitt in seconds
+                </Heading>
+
+                <Box maxWidth="1140px" m="0 auto">
+                    <Box
+                        display={['block', 'block', 'flex']}
+                        flexWrap="wrap"
+                        mx="-1rem"
+                        px="1rem"
+                        justifyContent="center"
+                    >
+                        {tutorial.map(({ title, subtitle, image }, index) => {
+                            const isOddRow = index % 2 !== 0
+                            return (
+                                <Box
+                                    display={['block', 'block', 'flex']}
+                                    key={index}
+                                    flexDirection={isOddRow ? 'row-reverse' : 'row'}
+                                    justifyContent="center"
+                                    my={['3rem', '3rem', '6rem']}
+                                >
+                                    <Box
+                                        width={[1, 1, 4 / 12]}
+                                        marginLeft={[0, 0, isOddRow ? '2rem' : 0]}
+                                        p="1rem"
+                                        display="flex"
+                                        flexDirection="column"
+                                        justifyContent="center"
+                                    >
+                                        <Heading
+                                            mb="1rem"
+                                            fontFamily="heading"
+                                            color="black"
+                                            fontSize={['heading1', 'heading2', 'heading2']}
+                                        >
+                                            {title}
+                                        </Heading>
+                                        <Text color="black400" fontFamily="body" fontSize="body">
+                                            {subtitle}
+                                        </Text>
+                                    </Box>
+                                    <Box
+                                        width={[1, 1, 7 / 12]}
+                                        textAlign="center"
+                                        p="1rem"
+                                        marginLeft={[0, 0, isOddRow ? 0 : '2rem']}
+                                    >
+                                        <Box backgroundColor="primary" borderRadius="8px" p="2rem">
+                                            <Image src={image} width="100%" borderRadius="4px" />
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            )
+                        })}
+                    </Box>
+
+                    <Box pt="3rem">
+                        <Box p="1rem" width={[1, 1, 7 / 12]} m="0 auto" textAlign="center">
+                            <Heading
+                                as="h2"
+                                fontSize={['heading3', 'heading3', 'display2']}
+                                textAlign="center"
+                                fontFamily="heading"
+                                color="black"
+                                mb="1rem"
+                            >
+                                Built by experts in experiential learning
+                            </Heading>
+                            <Text color="black400" fontFamily="body" fontSize="body">
+                                Kitt has been designed by a team of specialists who have helped
+                                organizations around the world create high performing teams and
+                                meaningful change.
+                            </Text>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
