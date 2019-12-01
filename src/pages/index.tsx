@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Link } from 'components'
+import { Link, Card } from 'components'
 import { Box, Image, Flex, Text, Heading } from 'chakra'
 
 // Sections
@@ -12,6 +12,27 @@ import WordMark from 'assets/images/kitt-text-logo-offwhite.svg'
 import KittIcon from 'assets/images/kitt_icon.png'
 
 const IndexPage = () => {
+    const installUrl =
+        'https://slack.com/oauth/authorize?client_id=729386734450.735260681362&scope=commands,bot,incoming-webhook,channels:read,users.profile:read'
+
+    const features = [
+        {
+            title: 'Improve your team’s core skills',
+            description: 'Get weekly actions, nudges, and surveys to develop a range of skills.',
+            link: installUrl
+        },
+        {
+            title: 'Be inspired by world class leaders',
+            description: 'Learn from lessons and insights from business and world leaders.',
+            link: installUrl
+        },
+        {
+            title: 'Develop culture and community',
+            description:
+                'Foster your values and mission across your company through regular activity.',
+            link: installUrl
+        }
+    ]
     return (
         <Layout>
             <Box bg="offwhite" minHeight="100vh" maxWidth="100%" overflowX="hidden">
@@ -48,7 +69,7 @@ const IndexPage = () => {
                             Your very own team coach for Slack. Kitt helps you build a high
                             performing team and community of people that don’t want to leave.
                         </Text>
-                        <Link to="https://slack.com/oauth/authorize?client_id=729386734450.735260681362&scope=commands,bot,incoming-webhook,channels:read,users.profile:read">
+                        <Link to={installUrl}>
                             <Image
                                 src="https://platform.slack-edge.com/img/add_to_slack@2x.png"
                                 height="50px"
@@ -58,6 +79,30 @@ const IndexPage = () => {
                         </Link>
                     </Box>
                 </Flex>
+                <Box maxWidth="1140px" m="0 auto" mt="2rem">
+                    <Box
+                        display={['block', 'block', 'flex']}
+                        mx="-1rem"
+                        px="1rem"
+                        justifyContent="center"
+                    >
+                        {features.map(({ title, description, link }) => (
+                            <Box p="1rem" width="100%">
+                                <Card boxShadow="el100" p="2rem" borderRadius="8px">
+                                    <Heading color="primary" fontSize="24px" mb="1rem">
+                                        {title}
+                                    </Heading>
+                                    <Text fontFamily="body" color="text" fontSize="body" mb="1rem">
+                                        {description}
+                                    </Text>
+                                    <Link color="black400" to={link}>
+                                        Get Started →
+                                    </Link>
+                                </Card>
+                            </Box>
+                        ))}
+                    </Box>
+                </Box>
             </Box>
         </Layout>
     )
