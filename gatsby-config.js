@@ -19,7 +19,7 @@ module.exports = {
                     }
                 ]
             }
-        }
+        },
         // {
         //     resolve: `gatsby-plugin-favicon`,
         //     options: {
