@@ -12,6 +12,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
                 theme: path.resolve(__dirname, 'src/theme'),
                 assets: path.resolve(__dirname, 'src/assets'),
                 types: path.resolve(__dirname, 'src/types'),
+                data: path.resolve(__dirname, 'src/data'),
                 chakra: path.resolve('node_modules/@chakra-ui/core')
             }
         }

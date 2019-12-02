@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import { SLACK_INSTALL_URL, SLACK_BUTTON } from 'data'
 import styled from '@emotion/styled'
 import { Link, Card } from 'components'
 import { Box, Image, Flex, Text, Heading } from 'chakra'
@@ -10,53 +12,20 @@ import Layout from '../layouts/Layout'
 import Wave from 'assets/images/header-wave.svg'
 import WordMark from 'assets/images/kitt-text-logo-offwhite.svg'
 import KittIcon from 'assets/images/kitt_icon.png'
-import KittOnboarding from 'assets/images/kittOnboarding.jpg'
-import KittBasics from 'assets/images/kittBasics.jpg'
-import KittFeedback from 'assets/images/kittFeedback.jpg'
 
-const IndexPage = () => {
-    const installUrl =
-        'https://slack.com/oauth/authorize?client_id=729386734450.735260681362&scope=commands,bot,incoming-webhook,channels:read,users.profile:read'
+const IndexPage = ({ data: { datoCmsHomePage } }) => {
+    const {
+        headline,
+        subtitle,
+        features,
+        tutorialSections,
+        tutorialTitle,
+        aboutText,
+        aboutTitle,
+        clientLogos,
+        qA
+    } = datoCmsHomePage
 
-    const features = [
-        {
-            title: 'Improve your team’s core skills',
-            description: 'Get weekly actions, nudges, and surveys to develop a range of skills.',
-            link: installUrl
-        },
-        {
-            title: 'Be inspired by world class leaders',
-            description: 'Learn from lessons and insights from business and world leaders.',
-            link: installUrl
-        },
-        {
-            title: 'Develop culture and community',
-            description:
-                'Foster your values and mission across your company through regular activity.',
-            link: installUrl
-        }
-    ]
-
-    const tutorial = [
-        {
-            title: 'Add Kitt to Slack',
-            subtitle:
-                'You’ll receive a message from Kitt who’ll take you through an easy onboarding to get your team set up.',
-            image: KittOnboarding
-        },
-        {
-            title: 'Get started with the Basics',
-            subtitle:
-                'Kitt will kick off with a 3 week plan for building up the basics – from communication to trust.',
-            image: KittBasics
-        },
-        {
-            title: 'Get feedback and progress',
-            subtitle:
-                'Kitt follows your progress and regularly asks for feedback so you can measure your progress.',
-            image: KittFeedback
-        }
-    ]
     return (
         <Layout>
             <Box
@@ -88,7 +57,7 @@ const IndexPage = () => {
                             fontSize={['heading2', 'heading3', 'display1']}
                             as="h1"
                         >
-                            Lead great teams
+                            {headline || 'Lead great teams'}
                         </Heading>
                         <Text
                             fontSize={['body', 'body', 'subtitle']}
@@ -96,12 +65,11 @@ const IndexPage = () => {
                             color="text"
                             mb="2rem"
                         >
-                            Your very own team coach for Slack. Kitt helps you build a high
-                            performing team and community of people that don’t want to leave.
+                            {subtitle}
                         </Text>
-                        <Link to={installUrl}>
+                        <Link to={SLACK_INSTALL_URL}>
                             <Image
-                                src="https://platform.slack-edge.com/img/add_to_slack@2x.png"
+                                src={SLACK_BUTTON}
                                 height="50px"
                                 alt="Add Coach Kitt to Slack"
                                 m="0 auto"
@@ -116,7 +84,7 @@ const IndexPage = () => {
                         px="1rem"
                         justifyContent="center"
                     >
-                        {features.map(({ title, description, link }) => (
+                        {features.map(({ title, subtitle, buttonText, link }) => (
                             <Box p="1rem" width="100%" key={title}>
                                 <Card
                                     boxShadow="el100"
@@ -128,10 +96,10 @@ const IndexPage = () => {
                                         {title}
                                     </Heading>
                                     <Text fontFamily="body" color="text" fontSize="body" mb="1rem">
-                                        {description}
+                                        {subtitle}
                                     </Text>
                                     <Link color="black400" to={link}>
-                                        Get Started →
+                                        {buttonText || 'Get Started →'}
                                     </Link>
                                 </Card>
                             </Box>
@@ -151,7 +119,7 @@ const IndexPage = () => {
                     m="0 auto"
                     width={['100%', '100%', 8 / 12, 7 / 12]}
                 >
-                    Get started with Kitt in seconds
+                    {tutorialTitle}
                 </Heading>
 
                 <Box maxWidth="1140px" m="0 auto">
@@ -162,7 +130,7 @@ const IndexPage = () => {
                         px="1rem"
                         justifyContent="center"
                     >
-                        {tutorial.map(({ title, subtitle, image }, index) => {
+                        {tutorialSections.map(({ title, description, image }, index) => {
                             const isOddRow = index % 2 !== 0
                             return (
                                 <Box
@@ -189,7 +157,7 @@ const IndexPage = () => {
                                             {title}
                                         </Heading>
                                         <Text color="black400" fontFamily="body" fontSize="body">
-                                            {subtitle}
+                                            {description}
                                         </Text>
                                     </Box>
                                     <Box
@@ -199,7 +167,12 @@ const IndexPage = () => {
                                         marginLeft={[0, 0, isOddRow ? 0 : '2rem']}
                                     >
                                         <Box backgroundColor="primary" borderRadius="8px" p="2rem">
-                                            <Image src={image} width="100%" borderRadius="4px" />
+                                            <Image
+                                                src={image.url}
+                                                width="100%"
+                                                borderRadius="4px"
+                                                alt={image.alt || image.title || title}
+                                            />
                                         </Box>
                                     </Box>
                                 </Box>
@@ -217,12 +190,10 @@ const IndexPage = () => {
                                 color="black"
                                 mb="1rem"
                             >
-                                Built by experts in experiential learning
+                                {aboutTitle}
                             </Heading>
                             <Text color="black400" fontFamily="body" fontSize="body">
-                                Kitt has been designed by a team of specialists who have helped
-                                organizations around the world create high performing teams and
-                                meaningful change.
+                                {aboutText}
                             </Text>
 
                             <Box mt="4rem">
@@ -235,7 +206,6 @@ const IndexPage = () => {
                                 >
                                     WE’VE WORKED WITH TEAMS AROUND THE WORLD
                                 </Text>
-                                
                             </Box>
                         </Box>
                     </Box>
@@ -244,6 +214,42 @@ const IndexPage = () => {
         </Layout>
     )
 }
+
+export const query = graphql`
+    query HomePageQuery {
+        datoCmsHomePage {
+            headline
+            subtitle
+            features {
+                title
+                subtitle
+                buttonText
+                link
+            }
+            tutorialTitle
+            tutorialSections {
+                title
+                description
+                image {
+                    alt
+                    title
+                    url
+                }
+            }
+            aboutTitle
+            aboutText
+            clientLogos {
+                alt
+                title
+                url
+            }
+            qA {
+                question
+                answer
+            }
+        }
+    }
+`
 
 export default IndexPage
 
