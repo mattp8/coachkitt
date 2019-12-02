@@ -195,17 +195,44 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                             <Text color="black400" fontFamily="body" fontSize="body">
                                 {aboutText}
                             </Text>
-
-                            <Box mt="4rem">
-                                <Text
-                                    color="black400"
-                                    textTransform="uppercase"
-                                    fontFamily="body"
-                                    fontSize="tiny"
-                                    fontWeight="medium"
-                                >
-                                    WE’VE WORKED WITH TEAMS AROUND THE WORLD
-                                </Text>
+                        </Box>
+                        <Box
+                            p="3rem 1rem 1rem"
+                            width={[1, 1, 8 / 12]}
+                            m="0 auto"
+                            textAlign="center"
+                        >
+                            <Text
+                                color="black400"
+                                textTransform="uppercase"
+                                fontFamily="body"
+                                fontSize="tiny"
+                                fontWeight="medium"
+                            >
+                                WE’VE WORKED WITH TEAMS AROUND THE WORLD
+                            </Text>
+                            <Box
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                                pt="2rem"
+                                px="-2rem"
+                            >
+                                {clientLogos.map(({ alt, title, url }) => (
+                                    <Box
+                                        px="2rem"
+                                        py={['1rem', '1rem', 0]}
+                                        display="flex"
+                                        justifyContent="center"
+                                    >
+                                        <Image
+                                            src={url}
+                                            alt={alt || title}
+                                            width="auto"
+                                            maxHeight="40px"
+                                        />
+                                    </Box>
+                                ))}
                             </Box>
                         </Box>
                     </Box>
