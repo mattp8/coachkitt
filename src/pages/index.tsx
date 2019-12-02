@@ -224,6 +224,19 @@ const IndexPage = () => {
                                 organizations around the world create high performing teams and
                                 meaningful change.
                             </Text>
+
+                            <Box mt="4rem">
+                                <Text
+                                    color="black400"
+                                    textTransform="uppercase"
+                                    fontFamily="body"
+                                    fontSize="tiny"
+                                    fontWeight="medium"
+                                >
+                                    WE’VE WORKED WITH TEAMS AROUND THE WORLD
+                                </Text>
+                                
+                            </Box>
                         </Box>
                     </Box>
                 </Box>

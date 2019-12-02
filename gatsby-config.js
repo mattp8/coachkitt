@@ -26,13 +26,13 @@ module.exports = {
         //         logo: './src/assets/images/favico.png'
         //     }
         // },
-        // {
-        //     resolve: 'gatsby-source-datocms',
-        //     options: {
-        //         apiToken: process.env.DATO_TOKEN,
-        //         preview: false,
-        //         disableLiveReload: false
-        //     }
-        // }
+        {
+            resolve: 'gatsby-source-datocms',
+            options: {
+                apiToken: process.env.DATO_TOKEN,
+                preview: false,
+                disableLiveReload: false
+            }
+        }
     ]
 }
