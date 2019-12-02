@@ -180,7 +180,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                         })}
                     </Box>
 
-                    <Box pt="3rem">
+                    <Box py="3rem">
                         <Box p="1rem" width={[1, 1, 7 / 12]} m="0 auto" textAlign="center">
                             <Heading
                                 as="h2"
@@ -234,6 +234,43 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                     </Box>
                                 ))}
                             </Box>
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+            <Box bg="offwhite" py="6rem" px="1rem">
+                <Heading
+                    as="h3"
+                    fontSize={['heading3', 'heading3', 'display2']}
+                    fontFamily="heading"
+                    textAlign="center"
+                >
+                    Questions
+                </Heading>
+                <Box display="flex" flexWrap="wrap" justifyContent="center" pt="3rem">
+                    <Box
+                        bg="white"
+                        width={[1, 1, 10 / 12, 8 / 12]}
+                        p={['1rem', '2rem']}
+                        borderRadius="medium"
+                    >
+                        <Box display={['block', 'block', 'flex']} flexWrap="wrap" mx="-1rem">
+                            {qA.map(({ question, answer }) => (
+                                <Box p="1rem 2rem" width={[1, 1, 1 / 2]}>
+                                    <Text
+                                        fontFamily="body"
+                                        fontWeight="bold"
+                                        fontSize="subtitle"
+                                        color="black"
+                                        mb="1rem"
+                                    >
+                                        {question}
+                                    </Text>
+                                    <Text fontFamily="body" fontSize="body" color="black300">
+                                        {answer}
+                                    </Text>
+                                </Box>
+                            ))}
                         </Box>
                     </Box>
                 </Box>
