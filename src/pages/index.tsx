@@ -147,6 +147,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                         display="flex"
                                         flexDirection="column"
                                         justifyContent="center"
+                                        textAlign={['center', 'center', 'left']}
                                     >
                                         <Heading
                                             mb="1rem"

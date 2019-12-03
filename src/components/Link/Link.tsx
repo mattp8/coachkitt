@@ -45,7 +45,7 @@ const _Link = styled(Box)`
     cursor: pointer;
     word-wrap: break-word;
     word-break: break-word;
-    font-weight: bold;
+    font-weight: ${props => props.fontWeight || 'bold'};
     position: relative;
 
     &:after {
