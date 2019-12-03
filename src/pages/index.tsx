@@ -142,7 +142,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                     my={['3rem', '3rem', '6rem']}
                                 >
                                     <Box
-                                        width={[1, 1, 4 / 12]}
+                                        width={[1, 1, 4 / 12, 5 / 12]}
                                         marginLeft={[0, 0, isOddRow ? '2rem' : 0]}
                                         p="1rem"
                                         display="flex"
@@ -154,16 +154,25 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                             mb="1rem"
                                             fontFamily="heading"
                                             color="black"
-                                            fontSize={['heading1', 'heading2', 'heading2']}
+                                            fontSize={[
+                                                'heading1',
+                                                'heading2',
+                                                'heading3',
+                                                'heading3'
+                                            ]}
                                         >
                                             {title}
                                         </Heading>
-                                        <Text color="black400" fontFamily="body" fontSize="body">
+                                        <Text
+                                            color="black400"
+                                            fontFamily="body"
+                                            fontSize={['body', 'body', 'subtitle']}
+                                        >
                                             {description}
                                         </Text>
                                     </Box>
                                     <Box
-                                        width={[1, 1, 7 / 12]}
+                                        width={[1, 1, 7 / 12, 6 / 12]}
                                         textAlign="center"
                                         p="1rem"
                                         marginLeft={[0, 0, isOddRow ? 0 : '2rem']}
@@ -264,7 +273,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                         fontWeight="bold"
                                         fontSize="subtitle"
                                         color="black"
-                                        mb="1rem"
+                                        mb=".5rem"
                                     >
                                         {question}
                                     </Text>
