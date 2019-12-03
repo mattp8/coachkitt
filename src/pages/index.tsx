@@ -117,6 +117,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                     fontFamily="heading"
                     color="black"
                     px="1rem"
+                    pb="3rem"
                     m="0 auto"
                     width={['100%', '100%', 8 / 12, 7 / 12]}
                 >
@@ -139,7 +140,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                     key={index}
                                     flexDirection={isOddRow ? 'row-reverse' : 'row'}
                                     justifyContent="center"
-                                    my={['3rem', '3rem', '6rem']}
+                                    my={['3rem', '3rem', '3rem']}
                                 >
                                     <Box
                                         width={[1, 1, 4 / 12, 5 / 12]}
@@ -223,7 +224,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                 WE’VE WORKED WITH TEAMS AROUND THE WORLD
                             </Text>
                             <Box
-                                display="flex"
+                                display={['block', 'block', 'flex']}
                                 alignItems="center"
                                 justifyContent="center"
                                 pt="2rem"
@@ -249,7 +250,7 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                     </Box>
                 </Box>
             </Box>
-            <Box bg="offwhite" py="6rem" px="1rem">
+            <Box bg="offwhite" py={['6rem', '6rem', '9rem']} px="1rem">
                 <Heading
                     as="h3"
                     fontSize={['heading3', 'heading3', 'display2']}
