@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { SLACK_INSTALL_URL, SLACK_BUTTON } from 'data'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link, Card } from 'components'
 import { Box, Image, Flex, Text, Heading } from 'chakra'
@@ -267,9 +268,21 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                                     >
                                         {question}
                                     </Text>
-                                    <Text fontFamily="body" fontSize="body" color="black300">
-                                        {answer}
-                                    </Text>
+                                    <Box
+                                        fontFamily="body"
+                                        fontSize="body"
+                                        color="black300"
+                                        css={css`
+                                            a {
+                                                color: #cd6c51;
+                                                font-weight: 500;
+                                                &:hover {
+                                                    text-decoration: underline;
+                                                }
+                                            }
+                                        `}
+                                        dangerouslySetInnerHTML={{ __html: answer }}
+                                    ></Box>
                                 </Box>
                             ))}
                         </Box>
