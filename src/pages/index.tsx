@@ -78,13 +78,8 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                         </Link>
                     </Box>
                 </Flex>
-                <Box maxWidth="1140px" m="0 auto" mt="2rem">
-                    <Box
-                        display={['block', 'block', 'flex']}
-                        mx="-1rem"
-                        px="1rem"
-                        justifyContent="center"
-                    >
+                <Box maxWidth="1140px" m="0 auto" mt="2rem" px="1rem">
+                    <Box display={['block', 'block', 'flex']} mx="-1rem" justifyContent="center">
                         {features.map(({ title, subtitle, buttonText, link }) => (
                             <Box p="1rem" width="100%" key={title}>
                                 <Card
@@ -124,12 +119,11 @@ const IndexPage = ({ data: { datoCmsHomePage } }) => {
                     {tutorialTitle}
                 </Heading>
 
-                <Box maxWidth="1140px" m="0 auto">
+                <Box maxWidth="1140px" m="0 auto" px="1rem">
                     <Box
                         display={['block', 'block', 'flex']}
                         flexWrap="wrap"
                         mx="-1rem"
-                        px="1rem"
                         justifyContent="center"
                     >
                         {tutorialSections.map(({ title, description, image }, index) => {
